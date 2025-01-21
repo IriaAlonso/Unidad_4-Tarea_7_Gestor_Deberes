@@ -15,7 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import java.util.Calendar;
 
-public class AddHomeworkDialogFragment extends DialogFragment {
+public class NewHomeworkDialogFragment extends DialogFragment {
 
     private EditText descriptionEditText;
     private EditText dueDateEditText;
@@ -23,8 +23,8 @@ public class AddHomeworkDialogFragment extends DialogFragment {
     private OnHomeworkSavedListener listener;
     private Homework homeworkToEdit;
 
-    public static AddHomeworkDialogFragment newInstance(Homework homework) {
-        AddHomeworkDialogFragment fragment = new AddHomeworkDialogFragment();
+    public static NewHomeworkDialogFragment newInstance(Homework homework) {
+        NewHomeworkDialogFragment fragment = new NewHomeworkDialogFragment();
         Bundle args = new Bundle();
         args.putParcelable("homework", homework);
         fragment.setArguments(args);
@@ -56,6 +56,7 @@ public class AddHomeworkDialogFragment extends DialogFragment {
         saveButton.setOnClickListener(v -> {
             if (validateInputs()) {
                 Homework homework = new Homework(
+
                         subjectSpinner.getSelectedItem().toString(),
                         descriptionEditText.getText().toString(),
                         dueDateEditText.getText().toString(),
